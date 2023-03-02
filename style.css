@@ -6,7 +6,7 @@
   --bg-color: #2D2E2F;
   --white-color: #FFFFFF;
 
-  font-size: 66.25%;
+  font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -29,9 +29,12 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  padding: 2rem;
 }
 
 .logo {
+  width: 100%;
+  max-width: 54.3rem;
   filter: drop-shadow(0px 0px 50px rgba(0, 0, 0, 0.25));
 }
 
@@ -85,4 +88,14 @@ body {
   bottom: calc(-36.8rem / 2);
   left: calc(-36.8rem / 2);
   animation: movingLight2 5s ease-in infinite alternate;
+}
+
+@media screen and (max-width: 570px) {
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .notice {
+    font-size: 3.5rem;
+  }
 }
