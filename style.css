@@ -35,34 +35,59 @@ body {
 .logo {
   width: 100%;
   max-width: 54.3rem;
-  filter: drop-shadow(0px 0px 50px rgba(0, 0, 0, 0.25));
+  margin-bottom: 2.5rem;
 }
 
 .subtitle {
   font-size: 1.8rem;
   color: var(--white-color);
-  text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
 .notice {
   font-size: 4rem;
   text-transform: uppercase;
   color: var(--white-color);
-  text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   margin-top: 15rem;
 }
 
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(200px);
+}
+
 @keyframes movingLight1 {
-  to {
+  25%{
     right: calc((-36.8rem / 2) + 100vw);
+  }
+  50% {
     top: calc((-36.8rem / 2) + 100vh);
+  }
+  75% {
+    right: 0;
+  }
+  100% {
+    top: 0;
   }
 }
 
 @keyframes movingLight2 {
-  to {
+  25% {
     left: calc((-36.8rem / 2) + 100vw);
+  }
+  50% {
     bottom: calc((-36.8rem / 2) + 100vh);
+  }
+  75% {
+    left: 0;
+  }
+  100% {
+    bottom: 0;
   }
 }
 
@@ -75,7 +100,7 @@ body {
   position: absolute;
   top: calc(-36.8rem / 2);
   right: calc(-36.8rem / 2);
-  animation: movingLight1 5s ease-in infinite alternate;
+  animation: movingLight1 15s ease-out infinite forwards;
 }
 
 .light-2 {
@@ -87,7 +112,7 @@ body {
   position: absolute;
   bottom: calc(-36.8rem / 2);
   left: calc(-36.8rem / 2);
-  animation: movingLight2 5s ease-in infinite alternate;
+  animation: movingLight2 15s ease-out infinite alternate;
 }
 
 @media screen and (max-width: 570px) {
