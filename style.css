@@ -123,4 +123,12 @@ body {
   .notice {
     font-size: 3.5rem;
   }
+
+  .light-1 {
+    animation: none;
+  }
+
+  .light-2 {
+    animation: none;
+  }
 }
