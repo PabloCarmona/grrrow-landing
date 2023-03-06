@@ -6,6 +6,8 @@
   --bg-color: #2D2E2F;
   --white-color: #FFFFFF;
 
+  --light-size: 45rem;
+
   font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
 }
@@ -58,15 +60,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(200px);
+  z-index: -5;
 }
 
 @keyframes movingLight1 {
   25%{
-    right: calc((-36.8rem / 2) + 100vw);
+    right: calc(((var(--light-size) / 2) * -1) + 100vw);
   }
   50% {
-    top: calc((-36.8rem / 2) + 100vh);
+    top: calc(((var(--light-size) / 2) * -1) + 100vh);
   }
   75% {
     right: 0;
@@ -78,10 +80,10 @@ body {
 
 @keyframes movingLight2 {
   25% {
-    left: calc((-36.8rem / 2) + 100vw);
+    left: calc(((var(--light-size) / 2) * -1) + 100vw);
   }
   50% {
-    bottom: calc((-36.8rem / 2) + 100vh);
+    bottom: calc(((var(--light-size) / 2) * -1) + 100vh);
   }
   75% {
     left: 0;
@@ -92,36 +94,43 @@ body {
 }
 
 .light-1 {
-  width: 36.8rem;
-  height: 36.8rem;
+  width: var(--light-size);
+  height: var(--light-size);
   border-radius: 100%;
   background-color: var(--primary-color);
-  filter: blur(20rem);
+  opacity: .5;
+  filter: blur(80px);
   position: absolute;
-  top: calc(-36.8rem / 2);
-  right: calc(-36.8rem / 2);
+  top: calc((var(--light-size) / 2) * -1);
+  right: calc((var(--light-size) / 2) * -1);
+  z-index: -1;
   animation: movingLight1 15s ease-out infinite forwards;
 }
 
 .light-2 {
-  width: 36.8rem;
-  height: 36.8rem;
+  width: var(--light-size);
+  height: var(--light-size);
   border-radius: 100%;
   background-color: var(--secondary-color);
-  filter: blur(20rem);
+  opacity: .5;
+  filter: blur(80px);
   position: absolute;
-  bottom: calc(-36.8rem / 2);
-  left: calc(-36.8rem / 2);
+  bottom: calc((var(--light-size) / 2) * -1);
+  left: calc((var(--light-size) / 2) * -1);
+  z-index: -1;
   animation: movingLight2 15s ease-out infinite alternate;
 }
 
 @media screen and (max-width: 570px) {
+  :root {
+    --light-size: 30rem;
+  }
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .notice {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .light-1 {
