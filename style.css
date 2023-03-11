@@ -39,6 +39,9 @@ body {
   font-size: 1.6rem;
   background-color: var(--bg-color);
   color: var(--white-color);
+  scroll-behavior: smooth;
+  scroll-snap-align: center;
+  scroll-snap-type: y mandatory;
 }
 
 .header {
@@ -102,7 +105,7 @@ body {
   }
 }
 
-.light-1 {
+.header .light-1 {
   width: var(--light-size);
   height: var(--light-size);
   border-radius: 100%;
@@ -116,7 +119,7 @@ body {
   /* animation: movingLight1 15s ease-out infinite forwards; */
 }
 
-.light-2 {
+.header .light-2 {
   width: var(--light-size);
   height: var(--light-size);
   border-radius: 100%;
@@ -154,12 +157,14 @@ body {
 .about__title {
   max-width: 52rem;
   margin-bottom: 2rem;
+  padding-left: 6rem;
 }
 
 .about__text {
   max-width: 42rem;
   line-height: 2.3rem;
   margin-bottom: 2rem;
+  padding-left: 6rem;
 }
 
 .companies {
@@ -184,6 +189,7 @@ body {
   max-width: 40rem;
   text-align: right;
   margin-bottom: 20rem;
+  padding-right: 6rem;
 }
 
 .companies__title span {
@@ -199,6 +205,11 @@ body {
   width: 100%;
 }
 
+.features {
+  margin-bottom: 10rem;
+  padding-inline: 6rem;
+}
+
 .features__title {
   background: var(--gradient-color);
   -webkit-background-clip: text;
@@ -212,7 +223,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 2.5rem;
   row-gap: 6rem;
-  margin-bottom: 10rem;
 }
 
 .features__list-item {
@@ -226,11 +236,23 @@ body {
 
 .team {
   margin-bottom: 12rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.team__separator {
+  width: 120%;
+  height: 38rem;
+  border-radius: 100%;
+  transform: translateX(-10%);
+  background: linear-gradient(180deg, rgba(242, 211, 48, 0.13) 0%, rgba(245, 167, 0, 0) 43.01%);
+  position: absolute;
 }
 
 .team__title {
   text-align: center;
   margin-bottom: 15rem;
+  padding-top: 20rem;
 }
 
 .team__list {
@@ -268,6 +290,11 @@ body {
   column-gap: 1rem;
 }
 
+.contact {
+  position: relative;
+  padding-inline: 6rem;
+}
+
 .contact__title {
   text-align: center;
   margin-bottom: 5rem;
@@ -299,6 +326,40 @@ body {
   text-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
   border-radius: .6rem;
   cursor: pointer;
+}
+
+@keyframes floatingLights {
+  to {
+    transform: translateY(-10rem);
+  }
+}
+
+.contact .light-1 {
+  width: calc(var(--light-size) / 2);
+  height: calc(var(--light-size) / 2);
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  opacity: .5;
+  filter: blur(40px);
+  position: absolute;
+  top: 0;
+  left: calc((var(--light-size) / 2) * -2);
+  z-index: -1;
+  animation: floatingLights 5s ease-in-out infinite alternate;
+}
+
+.contact .light-2 {
+  width: calc(var(--light-size) / 2);
+  height: calc(var(--light-size) / 2);
+  border-radius: 100%;
+  background-color: var(--secondary-color);
+  opacity: .5;
+  filter: blur(40px);
+  position: absolute;
+  bottom: 0;
+  right: calc((var(--light-size) / 2) * -2);
+  z-index: -1;
+  animation: floatingLights 5s ease-in-out infinite alternate-reverse;
 }
 
 .footer {
